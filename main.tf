@@ -1,5 +1,4 @@
-
-data "aws_vpc" "selected" {
+ data "aws_vpc" "selected" {
   filter {
     name   = "name"
     values = ["${var.vpc_name}"]
@@ -98,7 +97,7 @@ data "aws_subnet" "public4" {
   }
 }
 
-vars {
+locals {
   nr_of_azs_private = "${length(data.aws_subnet_ids.public.ids)}"
   nr_of_azs_public  = "${length(data.aws_subnet_ids.public.ids)}"
 

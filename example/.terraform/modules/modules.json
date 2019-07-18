@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"vpn_details","Source":"git::https://github.com/macleanj/terraform_aws_vpc_details.git","Dir":".terraform/modules/vpn_details"}]}

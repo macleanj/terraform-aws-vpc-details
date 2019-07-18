@@ -1,6 +1,7 @@
 
-module "vpn_details" {
-  source                = "git::https://github.com/macleanj/terraform_aws_vpc_details.git.git"
+module "vpc_details" {
+  source                = "git::https://github.com/macleanj/terraform_aws_vpc_details.git"
+  region = "us-east-1"
   vpn_name = "Beanstalk VPC"
   subnet_label_private1 = "Beanstalk VPC-private-us-east-1a"
   subnet_label_private2 = "Beanstalk VPC-private-us-east-1b"
