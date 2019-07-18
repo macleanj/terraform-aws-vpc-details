@@ -1,6 +1,6 @@
 data "aws_vpc" "selected" {
   filter {
-    name   = "tag:name"
+    name   = "tag:Name"
     values = ["${var.vpc_name}"]
   }
 }
@@ -9,9 +9,8 @@ data "aws_vpc" "selected" {
 data "aws_subnet_ids" "private" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  filter {
-    name   = "tag:name"
-    values = ["*rivate*"]
+  tags = {
+    Name = "*rivate*"
   }
 }
 
@@ -19,9 +18,8 @@ data "aws_subnet_ids" "private" {
 data "aws_subnet_ids" "public" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  filter {
-    name   = "tag:name"
-    values = ["*ublic"]
+  tags = {
+    Name = "*ublic*"
   }
 }
 
@@ -29,7 +27,7 @@ data "aws_subnet" "private1" {
   count = "${local.nr_of_azs_private >= 1 ? 1 : 0}"
 
   tags = {
-    name = "${var.subnet_name_private1}"
+    Name = "${var.subnet_name_private1}"
   }
 }
 
@@ -39,7 +37,7 @@ data "aws_subnet" "private2" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_private2}"
+    Name = "${var.subnet_name_private2}"
   }
 }
 
@@ -48,7 +46,7 @@ data "aws_subnet" "private3" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_private3}"
+    Name = "${var.subnet_name_private3}"
   }
 }
 
@@ -57,7 +55,7 @@ data "aws_subnet" "private4" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_private4}"
+    Name = "${var.subnet_name_private4}"
   }
 }
 
@@ -66,7 +64,7 @@ data "aws_subnet" "public1" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_public1}"
+    Name = "${var.subnet_name_public1}"
   }
 }
 
@@ -75,7 +73,7 @@ data "aws_subnet" "public2" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_public2}"
+    Name = "${var.subnet_name_public2}"
   }
 }
 
@@ -84,7 +82,7 @@ data "aws_subnet" "public3" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_public3}"
+    Name = "${var.subnet_name_public3}"
   }
 }
 
@@ -93,7 +91,7 @@ data "aws_subnet" "public4" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
-    name = "${var.subnet_name_public4}"
+    Name = "${var.subnet_name_public4}"
   }
 }
 
@@ -124,5 +122,4 @@ locals {
 
   subnet_public4_id         = "${length(data.aws_subnet.public4.*.id) > 0 ? element(concat(data.aws_subnet.public4.*.id, list("")), 0) : "Not existing"}"
   subnet_public4_cidr_block = "${length(data.aws_subnet.public4.*.cidr_block) > 0 ? element(concat(data.aws_subnet.public4.*.cidr_block, list("")), 0) : "Not existing"}"
-
 }
