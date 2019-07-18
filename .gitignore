@@ -1,0 +1,34 @@
+######################
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+######################
+# Secutiry           #
+######################
+*.pem
+
+######################
+# Generic            #
+######################
+data/
+*.zip
+
+######################
+# Terraform
+######################
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
