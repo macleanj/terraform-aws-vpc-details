@@ -1,6 +1,6 @@
 data "aws_vpc" "selected" {
   filter {
-    name   = "name"
+    name   = "tag:name"
     values = ["${var.vpc_name}"]
   }
 }
@@ -10,7 +10,7 @@ data "aws_subnet_ids" "private" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   filter {
-    name   = "name"
+    name   = "tag:name"
     values = ["*rivate*"]
   }
 }
@@ -20,79 +20,79 @@ data "aws_subnet_ids" "public" {
   vpc_id = "${data.aws_vpc.selected.id}"
 
   filter {
-    name   = "name"
+    name   = "tag:name"
     values = ["*ublic"]
   }
 }
 
 data "aws_subnet" "private1" {
-  count = "${var.nr_of_azs_private >= 1 ? 1 : 0}"
+  count = "${local.nr_of_azs_private >= 1 ? 1 : 0}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_private1}"
   }
 }
 
 
 data "aws_subnet" "private2" {
-  count  = "${var.nr_of_azs_private >= 2 ? 1 : 0}"
+  count  = "${local.nr_of_azs_private >= 2 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_private2}"
   }
 }
 
 data "aws_subnet" "private3" {
-  count  = "${var.nr_of_azs_private >= 3 ? 1 : 0}"
+  count  = "${local.nr_of_azs_private >= 3 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_private3}"
   }
 }
 
 data "aws_subnet" "private4" {
-  count  = "${var.nr_of_azs_private >= 4 ? 1 : 0}"
+  count  = "${local.nr_of_azs_private >= 4 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_private4}"
   }
 }
 
 data "aws_subnet" "public1" {
-  count  = "${var.nr_of_azs_public >= 1 ? 1 : 0}"
+  count  = "${local.nr_of_azs_public >= 1 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_public1}"
   }
 }
 
 data "aws_subnet" "public2" {
-  count  = "${var.nr_of_azs_public >= 2 ? 1 : 0}"
+  count  = "${local.nr_of_azs_public >= 2 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_public2}"
   }
 }
 
 data "aws_subnet" "public3" {
-  count  = "${var.nr_of_azs_public >= 3 ? 1 : 0}"
+  count  = "${local.nr_of_azs_public >= 3 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_public3}"
   }
 }
 
 data "aws_subnet" "public4" {
-  count  = "${var.nr_of_azs_public >= 4 ? 1 : 0}"
+  count  = "${local.nr_of_azs_public >= 4 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
-  tags {
+  tags = {
     name = "${var.subnet_name_public4}"
   }
 }

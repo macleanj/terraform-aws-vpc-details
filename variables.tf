@@ -21,7 +21,6 @@ variable "subnet_name_private4" {
   default = ""
 }
 
-
 variable "subnet_name_public1" {
   description = "Name of Public Subnet 1"
 }
