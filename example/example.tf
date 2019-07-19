@@ -8,7 +8,7 @@ provider "aws" {
 
 module "vpc_details" {
   source               = "git::https://github.com/macleanj/terraform_aws_vpc_details.git"
-  vpc_name             = "jml-namespace-development-jml-tet-app"
+  vpc_name             = "my-great-vpc"
   subnet_name_private1 = "us-east-1a"
   subnet_name_private2 = "us-east-1b"
 
