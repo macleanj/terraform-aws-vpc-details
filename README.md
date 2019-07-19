@@ -39,8 +39,8 @@ module "vpc_details | |
 
 | Name | Description |
 |------|-------------|
-| nr_of_azs_private | Number of Private AZs |
-| nr_of_azs_public | Number of Public AZs |
+| subnets_private_count | Number of Private AZs |
+| subnets_public_count | Number of Public AZs |
 | subnet_private1_id | ID of Private Subnet 1 |
 | subnet_private1_cidr_block | CIDR block of Private Subnet 1 |
 | subnet_private2_id | ID of Private Subnet 2 |

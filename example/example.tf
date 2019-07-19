@@ -1,5 +1,5 @@
 locals {
-  region    = "us-east-1"
+  region = "us-east-1"
 }
 
 provider "aws" {
@@ -7,15 +7,13 @@ provider "aws" {
 }
 
 module "vpc_details" {
-  source                = "git::https://github.com/macleanj/terraform_aws_vpc_details.git"
-  vpc_name = "Beanstalk VPC"
-  subnet_name_private1 = "Beanstalk VPC-private-us-east-1a"
-  subnet_name_private2 = "Beanstalk VPC-private-us-east-1b"
-  subnet_name_private3 = ""
-  subnet_name_private4 = ""
+  source               = "git::https://github.com/macleanj/terraform_aws_vpc_details.git"
+  vpc_name             = "jml-namespace-development-jml-tet-app"
+  subnet_name_private1 = "us-east-1a"
+  subnet_name_private2 = "us-east-1b"
 
-  subnet_name_public1  = "Beanstalk VPC-public-us-east-1a"
-  subnet_name_public2  = "Beanstalk VPC-public-us-east-1b"
-  subnet_name_public3  = ""
-  subnet_name_public4  = ""
+  subnet_name_public1 = "us-east-1a"
+  has_nat_gw_public1  = true
+  subnet_name_public2 = "us-east-1b"
+  has_nat_gw_public2  = true
 }

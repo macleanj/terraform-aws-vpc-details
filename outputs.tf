@@ -1,8 +1,14 @@
-output "nr_of_azs_private" {
-  value = "${local.nr_of_azs_private}"
+output "subnets_private_count" {
+  value = "${local.subnets_private_count}"
 }
-output "nr_of_azs_public" {
-  value = "${local.nr_of_azs_public}"
+output "subnets_private_ids" {
+  value = "${local.subnets_private_ids}"
+}
+output "subnets_public_count" {
+  value = "${local.subnets_public_count}"
+}
+output "subnets_public_ids" {
+  value = "${local.subnets_public_ids}"
 }
 
 output "subnet_private1_id" {
@@ -126,4 +132,17 @@ output "subnet_public4_cidr_block" {
 }
 output "subnet_public4_ipv6_cidr_block" {
   value = "${local.subnet_public4_ipv6_cidr_block}"
+}
+
+output "subnet_public1_nat_gateway_id" {
+  value = "${local.subnet_public1_nat_gateway_id}"
+}
+output "subnet_public2_nat_gateway_id" {
+  value = "${local.subnet_public2_nat_gateway_id}"
+}
+output "subnet_public3_nat_gateway_id" {
+  value = "${local.subnet_public3_nat_gateway_id}"
+}
+output "subnet_public4_nat_gateway_id" {
+  value = "${local.subnet_public4_nat_gateway_id}"
 }
