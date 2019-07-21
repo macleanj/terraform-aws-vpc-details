@@ -46,7 +46,7 @@ Example given for subnet 1, however applies up to subnet 4.
 ## Outputs
 
 Example given for subnet 1, however applies up to subnet 4.
-
+ 
 | Name | Description | Type |
 |------|-------------| -----|
 | subnets_private_count | Number of Private AZs | number |
