@@ -146,3 +146,10 @@ output "subnet_public3_nat_gateway_id" {
 output "subnet_public4_nat_gateway_id" {
   value = "${module.vpc_details.subnet_public4_nat_gateway_id}"
 }
+
+output "default_network_acl_id" {
+  value = "${module.vpc_details.default_network_acl_id}"
+}
+output "default_security_group_id" {
+  value = "${module.vpc_details.default_security_group_id}"
+}

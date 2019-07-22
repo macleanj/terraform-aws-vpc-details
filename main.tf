@@ -113,6 +113,29 @@ data "aws_nat_gateway" "public4" {
   subnet_id = "${local.subnet_public4_id}"
 }
 
+data "aws_network_acls" "default" {
+  count = 1
+  vpc_id = "${data.aws_vpc.selected.id}"
+
+  filter {
+    name   = "default"
+    values = ["true"]
+  }
+}
+
+data "aws_security_groups" "default" {
+  count = 1
+
+  filter {
+    name   = "group-name"
+    values = ["default"]
+  }
+  filter {
+    name   = "vpc-id"
+    values = ["${data.aws_vpc.selected.id}"]
+  }
+}
+
 locals {
   # General statistics
   private_subnet_count = "${length(data.aws_subnet_ids.private.ids)}"
@@ -174,4 +197,8 @@ locals {
   subnet_public2_nat_gateway_id = "${length(data.aws_nat_gateway.public2.*.id) > 0 ? element(concat(data.aws_nat_gateway.public2.*.id, list("")), 0) : null}"
   subnet_public3_nat_gateway_id = "${length(data.aws_nat_gateway.public3.*.id) > 0 ? element(concat(data.aws_nat_gateway.public3.*.id, list("")), 0) : null}"
   subnet_public4_nat_gateway_id = "${length(data.aws_nat_gateway.public4.*.id) > 0 ? element(concat(data.aws_nat_gateway.public4.*.id, list("")), 0) : null}"
+
+  # Default VPC resources
+  default_network_acl_id    = "${element(concat(sort(data.aws_network_acls.default.*.ids[0]), sort(list(""))), 0)}"
+  default_security_group_id = "${length(data.aws_security_groups.default.*.ids[0]) > 0 ? element(concat(data.aws_security_groups.default.*.ids[0], list("")), 0) : null}"
 }

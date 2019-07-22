@@ -49,6 +49,8 @@ Example given for subnet 1, however applies up to subnet 4.
  
 | Name | Description | Type |
 |------|-------------| -----|
+| default_network_acl_id | ID of default Network ACL | string |
+| default_security_group_id | ID of default Security Group | string |
 | private_subnet_count | Number of Private AZs | number |
 | private_subnet_ids | IDs of Private AZs | list |
 | public_subnet_count | Number of Public AZs | number |
