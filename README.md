@@ -66,6 +66,7 @@ Example given for subnet 1, however applies up to subnet 4.
 | subnet_public1_cidr_block | IPv4 CIDR block of Public Subnet 1 | string |
 | subnet_public1_ipv6_cidr_block | IPv6 CIDR block of Public Subnet 1 | string |
 | subnet_public1_nat_gateway_id | ID of NAT gateway of Public Subnet 1 | string |
+| vpc_id | ID of the VPC | string |
 
 Known issues
 ------------

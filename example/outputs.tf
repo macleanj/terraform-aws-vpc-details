@@ -1,3 +1,7 @@
+output "vpc_id" {
+  value = "${module.vpc_details.vpc_id}"
+}
+
 output "private_subnet_count" {
   value = "${module.vpc_details.private_subnet_count}"
 }

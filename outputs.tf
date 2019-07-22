@@ -1,3 +1,7 @@
+output "vpc_id" {
+  value = "${data.aws_vpc.selected.id}"
+}
+
 output "private_subnet_count" {
   value = "${local.private_subnet_count}"
 }
