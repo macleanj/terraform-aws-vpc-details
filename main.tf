@@ -24,7 +24,7 @@ data "aws_subnet_ids" "public" {
 }
 
 data "aws_subnet" "private1" {
-  count  = "${local.subnets_private_count >= 1 ? 1 : 0}"
+  count  = "${local.private_subnet_count >= 1 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -34,7 +34,7 @@ data "aws_subnet" "private1" {
 
 
 data "aws_subnet" "private2" {
-  count  = "${local.subnets_private_count >= 2 ? 1 : 0}"
+  count  = "${local.private_subnet_count >= 2 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -43,7 +43,7 @@ data "aws_subnet" "private2" {
 }
 
 data "aws_subnet" "private3" {
-  count  = "${local.subnets_private_count >= 3 ? 1 : 0}"
+  count  = "${local.private_subnet_count >= 3 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -52,7 +52,7 @@ data "aws_subnet" "private3" {
 }
 
 data "aws_subnet" "private4" {
-  count  = "${local.subnets_private_count >= 4 ? 1 : 0}"
+  count  = "${local.private_subnet_count >= 4 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -61,7 +61,7 @@ data "aws_subnet" "private4" {
 }
 
 data "aws_subnet" "public1" {
-  count  = "${local.subnets_public_count >= 1 ? 1 : 0}"
+  count  = "${local.public_subnet_count >= 1 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -70,7 +70,7 @@ data "aws_subnet" "public1" {
 }
 
 data "aws_subnet" "public2" {
-  count  = "${local.subnets_public_count >= 2 ? 1 : 0}"
+  count  = "${local.public_subnet_count >= 2 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -79,7 +79,7 @@ data "aws_subnet" "public2" {
 }
 
 data "aws_subnet" "public3" {
-  count  = "${local.subnets_public_count >= 3 ? 1 : 0}"
+  count  = "${local.public_subnet_count >= 3 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -88,7 +88,7 @@ data "aws_subnet" "public3" {
 }
 
 data "aws_subnet" "public4" {
-  count  = "${local.subnets_public_count >= 4 ? 1 : 0}"
+  count  = "${local.public_subnet_count >= 4 ? 1 : 0}"
   vpc_id = "${data.aws_vpc.selected.id}"
 
   tags = {
@@ -115,10 +115,10 @@ data "aws_nat_gateway" "public4" {
 
 locals {
   # General statistics
-  subnets_private_count = "${length(data.aws_subnet_ids.private.ids)}"
-  subnets_private_ids   = "${data.aws_subnet_ids.private.ids}"
-  subnets_public_count  = "${length(data.aws_subnet_ids.public.ids)}"
-  subnets_public_ids    = "${data.aws_subnet_ids.public.ids}"
+  private_subnet_count = "${length(data.aws_subnet_ids.private.ids)}"
+  private_subnet_ids   = "${data.aws_subnet_ids.private.ids}"
+  public_subnet_count  = "${length(data.aws_subnet_ids.public.ids)}"
+  public_subnet_ids    = "${data.aws_subnet_ids.public.ids}"
 
   # Subnet information
   subnet_private1_id                   = "${length(data.aws_subnet.private1.*.id) > 0 ? element(concat(data.aws_subnet.private1.*.id, list("")), 0) : null}"

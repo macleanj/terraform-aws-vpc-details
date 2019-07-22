@@ -1,14 +1,14 @@
-output "subnets_private_count" {
-  value = "${local.subnets_private_count}"
+output "private_subnet_count" {
+  value = "${local.private_subnet_count}"
 }
-output "subnets_private_ids" {
-  value = "${local.subnets_private_ids}"
+output "private_subnet_ids" {
+  value = "${local.private_subnet_ids}"
 }
-output "subnets_public_count" {
-  value = "${local.subnets_public_count}"
+output "public_subnet_count" {
+  value = "${local.public_subnet_count}"
 }
-output "subnets_public_ids" {
-  value = "${local.subnets_public_ids}"
+output "public_subnet_ids" {
+  value = "${local.public_subnet_ids}"
 }
 
 output "subnet_private1_id" {

@@ -49,10 +49,10 @@ Example given for subnet 1, however applies up to subnet 4.
  
 | Name | Description | Type |
 |------|-------------| -----|
-| subnets_private_count | Number of Private AZs | number |
-| subnets_private_ids | IDs of Private AZs | list |
-| subnets_public_count | Number of Public AZs | number |
-| subnets_public_ids | IDs of Public AZs | list |
+| private_subnet_count | Number of Private AZs | number |
+| private_subnet_ids | IDs of Private AZs | list |
+| public_subnet_count | Number of Public AZs | number |
+| public_subnet_ids | IDs of Public AZs | list |
 | subnet_private1_id | ID of Private Subnet 1 | string |
 | subnet_private1_availability_zone | AZ name of Private Subnet 1 | string |
 | subnet_private1_availability_zone_id | AZ id of Private Subnet 1 | string |
