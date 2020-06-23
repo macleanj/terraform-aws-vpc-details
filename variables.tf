@@ -84,27 +84,27 @@ variable "has_nat_gw_public6" {
 }
 
 # Database subnet names
-variable "subnet_name_database1" {
+variable "subnet_name_db1" {
   description = "Name of Database Subnet 1"
   default     = ""
 }
-variable "subnet_name_database2" {
+variable "subnet_name_db2" {
   description = "Name of Database Subnet 2"
   default     = ""
 }
-variable "subnet_name_database3" {
+variable "subnet_name_db3" {
   description = "Name of Database Subnet 3"
   default     = ""
 }
-variable "subnet_name_database4" {
+variable "subnet_name_db4" {
   description = "Name of Database Subnet 4"
   default     = ""
 }
-variable "subnet_name_database5" {
+variable "subnet_name_db5" {
   description = "Name of Database Subnet 5"
   default     = ""
 }
-variable "subnet_name_database6" {
+variable "subnet_name_db6" {
   description = "Name of Database Subnet 6"
   default     = ""
 }
@@ -134,6 +134,33 @@ variable "subnet_name_elasticache6" {
   description = "Name of Elasticache Subnet 6"
   default     = ""
 }
+
+# Intra subnet names
+variable "subnet_name_intra1" {
+  description = "Name of Intra Subnet 1"
+  default     = ""
+}
+variable "subnet_name_intra2" {
+  description = "Name of Intra Subnet 2"
+  default     = ""
+}
+variable "subnet_name_intra3" {
+  description = "Name of Intra Subnet 3"
+  default     = ""
+}
+variable "subnet_name_intra4" {
+  description = "Name of Intra Subnet 4"
+  default     = ""
+}
+variable "subnet_name_intra5" {
+  description = "Name of Intra Subnet 5"
+  default     = ""
+}
+variable "subnet_name_intra6" {
+  description = "Name of Intra Subnet 6"
+  default     = ""
+}
+
 
 # Redshift subnet names
 variable "subnet_name_redshift1" {

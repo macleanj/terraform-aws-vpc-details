@@ -21,12 +21,16 @@ module "vpc_details" {
   has_nat_gw_public2  = false
 
   # Database subnets
-  subnet_name_database1 = "${local.region}a"
-  subnet_name_database2 = "${local.region}b"
+  subnet_name_db1 = "${local.region}a"
+  subnet_name_db2 = "${local.region}b"
 
   # Elasticache subnets
   subnet_name_elasticache1 = "${local.region}a"
   subnet_name_elasticache2 = "${local.region}b"
+
+  # Intra subnets
+  subnet_name_intra1 = "${local.region}a"
+  subnet_name_intra2 = "${local.region}b"
 
   # Redshift subnets
   subnet_name_redshift1 = "${local.region}a"
