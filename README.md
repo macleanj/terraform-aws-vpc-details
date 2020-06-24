@@ -84,8 +84,10 @@ Example given for public and private, however applies also to db, elasticache, i
 | vpc_default_route_table_id | ID of the "default" route table associated with this VPC (by pattern matching) | string |
 | private_subnet_count | Number of Private AZs | number |
 | private_subnet_ids | IDs of Private AZs | list |
+| private_subnet_route_table_id | ID of Private route table | string |
 | public_subnet_count | Number of Public AZs | number |
 | public_subnet_ids | IDs of Public AZs | list |
+| public_subnet_route_table_id | ID of Public route table | string |
 | subnet_private1_id | ID of Private Subnet 1 | string |
 | subnet_private1_availability_zone | AZ name of Private Subnet 1 | string |
 | subnet_private1_availability_zone_id | AZ id of Private Subnet 1 | string |
